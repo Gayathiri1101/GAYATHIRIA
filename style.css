@@ -4,428 +4,241 @@
     box-sizing:border-box;
 }
 
-body{
-    font-family:Arial,sans-serif;
-    background:#050816;
-    color:white;
-    overflow-x:hidden;
+body {
+    margin: 0;
+    padding-top: 150px;
+    font-family: Arial, sans-serif;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)),
+    url('gua kelam cave.png');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-/* NAVIGATION */
 
-nav{
+/* HEADER */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 8%;
     position:fixed;
-    top:0;
     width:100%;
-    padding:20px;
-    text-align:center;
-    background:rgba(0,0,0,0.4);
-    backdrop-filter:blur(12px);
+    top:0;
+
+    background: linear-gradient(to right, #141e30, #243b55);
+border-bottom: 2px solid gold;
+
     z-index:1000;
-
-    animation:navDrop 1s ease;
 }
 
-@keyframes navDrop{
-    from{
-        transform:translateY(-100%);
-    }
-
-    to{
-        transform:translateY(0);
-    }
-}
-
-nav a{
-
-    color:white;
-    text-decoration:none;
-
-    margin:20px;
-
-    font-size:20px;
+/* LOGO */
+.logo{
+    color:gold;
+    font-size:24px;
     font-weight:bold;
+    letter-spacing:3px;
+}
 
-    position:relative;
+.logo img{
+    width:120px;
+}
 
+/* NAV */
+nav a{
+    color:rgb(91, 207, 13);
+    text-decoration:none;
+    margin-left:30px;
+    font-size:16px;
     transition:0.4s;
 }
 
 nav a:hover{
-    color:gold;
-    letter-spacing:2px;
+    color:rgb(22, 19, 2);
 }
 
-nav a::after{
-
-    content:'';
-
-    position:absolute;
-
-    left:0;
-    bottom:-5px;
-
-    width:0%;
-    height:2px;
-
-    background:gold;
-
-    transition:0.5s;
-}
-
-nav a:hover::after{
-    width:100%;
-}
-
-/* HERO SECTION */
-
+/* HERO */
 .hero{
-
-    height:100vh;
-
-    overflow:hidden;
-
-    position:relative;
-
+    min-height:100vh;
     display:flex;
-    justify-content:center;
+    justify-content:space-between;
     align-items:center;
-
-    flex-direction:column;
-
-    text-align:center;
-}
-
-/* MOVING CAVE BACKGROUND */
-
-.hero::before{
-
-    content:'';
-
-    position:absolute;
-
-    width:110%;
-    height:110%;
-
+    padding:120px 10%;
     background:
-    linear-gradient(rgba(0,0,0,0.5),
-    rgba(0,0,0,0.8)),
+    linear-gradient(rgba(56, 3, 3, 0.6),
+    rgba(28, 2, 61, 0.8)),
     url('cave.jpg');
-
     background-size:cover;
     background-position:center;
-
-    animation:
-    caveMove 18s infinite alternate ease-in-out;
-
-    z-index:-2;
-}
-
-@keyframes caveMove{
-
-    0%{
-        transform:
-        scale(1)
-        translateY(0px);
-    }
-
-    100%{
-        transform:
-        scale(1.15)
-        translateY(-20px);
-    }
-}
-
-/* DARK OVERLAY */
-
-.hero::after{
-
-    content:'';
-
-    position:absolute;
-
-    width:100%;
-    height:100%;
-
-    background:
-    radial-gradient(circle,
-    transparent 20%,
-    rgba(0,0,0,0.9) 100%);
-
-    z-index:-1;
-}
-
-/* PARTICLES */
-
-.particles{
-
-    position:absolute;
-
-    width:100%;
-    height:100%;
-
-    overflow:hidden;
-}
-
-.particles::before,
-.particles::after{
-
-    content:'';
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    background:
-    radial-gradient(gold,
-    transparent 70%);
-
-    opacity:0.15;
-
-    border-radius:50%;
-
-    animation:
-    particleMove 15s infinite linear;
-}
-
-.particles::after{
-
-    left:60%;
-    top:40%;
-
-    animation-duration:20s;
-}
-
-@keyframes particleMove{
-
-    from{
-        transform:
-        translateY(0px)
-        rotate(0deg);
-    }
-
-    to{
-        transform:
-        translateY(-100px)
-        rotate(360deg);
-    }
-}
-
-/* HERO TITLE */
-
-.hero h1{
-
-    font-size:100px;
-
-    color:gold;
-
-    text-shadow:
-    0 0 15px gold,
-    0 0 35px rgba(255,215,0,0.7),
-    0 0 80px rgba(255,215,0,0.4);
-
-    animation:
-    glowText 3s infinite alternate;
-}
-
-@keyframes glowText{
-
-    from{
-        text-shadow:
-        0 0 10px gold;
-    }
-
-    to{
-        text-shadow:
-        0 0 30px gold,
-        0 0 60px gold;
-    }
 }
 
 /* HERO TEXT */
-
-.hero p{
-
-    width:70%;
-
-    margin-top:25px;
-
-    font-size:24px;
-
-    line-height:1.8;
-
-    animation:
-    floatText 4s infinite ease-in-out;
+.hero-text{
+    width:50%;
 }
 
-@keyframes floatText{
-
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-10px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
+.hero-text h1{
+    font-size:70px;
+    color:rgb(214, 214, 16);
+    margin-bottom:20px;
 }
 
-/* BUTTON */
-
-.btn{
-
-    margin-top:40px;
-
-    padding:16px 40px;
-
-    border:none;
-
-    background:gold;
-
-    color:black;
-
+.hero-text p{
     font-size:20px;
-
-    border-radius:40px;
-
-    cursor:pointer;
-
-    transition:0.5s;
-
-    box-shadow:
-    0 0 15px rgba(255,215,0,0.5);
-}
-
-.btn:hover{
-
-    transform:
-    scale(1.1)
-    translateY(-5px);
-
-    box-shadow:
-    0 0 25px gold,
-    0 0 50px gold;
-}
-
-/* PAGES */
-
-.page{
-
-    padding:140px 60px;
-
-    animation:
-    flyIn 1.5s ease;
-}
-
-@keyframes flyIn{
-
-    from{
-        opacity:0;
-
-        transform:
-        translateY(100px)
-        scale(0.9);
-    }
-
-    to{
-        opacity:1;
-
-        transform:
-        translateY(0)
-        scale(1);
-    }
-}
-
-/* CARDS */
-
-.card{
-
-    background:#111827;
-
-    padding:35px;
-
-    border-radius:25px;
-
-    margin:35px 0;
-
-    transition:0.5s;
-
-    box-shadow:
-    0 0 20px rgba(0,0,0,0.5);
-}
-
-.card:hover{
-
-    transform:
-    translateY(-10px)
-    scale(1.02);
-
-    box-shadow:
-    0 0 30px rgba(255,215,0,0.2);
-}
-
-/* PROFILE IMAGE */
-
-.profile{
-
-    width:250px;
-
-    border-radius:20px;
-
-    border:4px solid gold;
-
-    margin-bottom:25px;
-}
-
-/* GALLERY */
-
-.gallery{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(300px,1fr));
-
-    gap:25px;
-}
-
-.gallery img{
-
-    width:100%;
-
-    border-radius:20px;
-
-    transition:0.5s;
-}
-
-.gallery img:hover{
-
-    transform:
-    scale(1.05);
-}
-
-/* TEXT */
-
-h1{
-
-    color:gold;
-
-    font-size:55px;
-
+    line-height:1.8;
     margin-bottom:30px;
 }
 
-h2{
+/* BUTTON */
+button{
+    padding:14px 35px;
+    border:none;
+    background:gold;
+    color:black;
+    font-size:16px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* HERO IMAGE */
+.hero-image{
+    width:40%;
+    display:flex;
+    justify-content:center;
+}
+
+.hero-image img{
+    width:350px;
+    border-radius:20px;
+    border:4px solid gold;
+}
+
+/* ABOUT PAGE */
+.page-content{
+    padding:50px 20px;
+    display:flex;
+    justify-content:center;
+}
+
+/* ABOUT CONTAINER */
+.about-container{
+    max-width:900px;
+    width:100%;
+}
+
+/* PROFILE CARD */
+.profile-card{
+    text-align:center;
+    background:rgb(197, 201, 205);
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    margin-bottom:25px;
+}
+
+.profile-image{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
     margin-bottom:15px;
 }
 
-p,li{
+.subtitle{
+    color:gray;
+    font-size:14px;
+}
 
-    line-height:1.8;
+/* INFO GRID */
+.info-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:20px;
+}
 
-    font-size:18px;
+/* INFO CARDS */
+.info-card{
+    background:rgb(76, 151, 227);
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.06);
+    transition:0.3s;
+}
+
+.info-card:hover{
+    transform:translateY(-5px);
+}
+
+.info-card h3{
+    margin-bottom:10px;
+}
+
+.role-container{
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+/* TITLE */
+.role-title{
+    font-size: 40px;
+    margin-bottom: 30px;
+    color: gold;
+    text-shadow: 0 0 10px rgba(255,215,0,0.4);
+}
+
+/* MAIN BIG BOX (TOP BOX) */
+.role-card.main{
+    background: linear-gradient(135deg, #1a1a40, #2a2a72);
+    color: rgb(72, 155, 219);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+/* SMALL BOX GRID */
+.role-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* SMALL CARDS */
+.role-card{
+    background: rgb(4, 28, 81);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.role-card:hover{
+    transform: translateY(-8px);
+}
+
+/* GLITTER EFFECT */
+.role-card.main::before{
+    content: "✨ 🪨 ✨";
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    font-size: 18px;
+}
+
+nav a.active{
+    background: rgb(87, 8, 65);
+    color: black;
+    padding: 10px 18px;
+    border-radius: 20px;
 }
